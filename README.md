@@ -1,1 +1,1 @@
-Projeto para Automação Industrial com Arduino e OpenPLC Project
+Projeto para Automação Industrial com Arduino
