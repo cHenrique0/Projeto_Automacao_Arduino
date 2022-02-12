@@ -223,10 +223,13 @@ void CONTROLE_SERVO_body__(CONTROLE_SERVO *data__) {
   if ((!(__GET_VAR(data__->START,)) && (__GET_VAR(data__->STOP,) || __GET_VAR(data__->STOP_LED,)))) {
     __SET_VAR(data__->,ENABLE_CONTROL,,__BOOL_LITERAL(FALSE));
   };
+  if ((!(__GET_VAR(data__->START,)) && (__GET_VAR(data__->STOP,) || __GET_VAR(data__->STOP_LED,)))) {
+    __SET_VAR(data__->,OUTPUT,,__BOOL_LITERAL(FALSE));
+  };
   if ((__GET_VAR(data__->CONTROL,) && __GET_VAR(data__->ENABLE_CONTROL,))) {
     __SET_VAR(data__->,OUTPUT,,__BOOL_LITERAL(TRUE));
   };
-  __SET_VAR(data__->TON0.,IN,,(__GET_VAR(data__->OUTPUT,) && __GET_VAR(data__->ENABLE_CONTROL,)));
+  __SET_VAR(data__->TON0.,IN,,__GET_VAR(data__->OUTPUT,));
   __SET_VAR(data__->TON0.,PT,,__time_to_timespec(1, 0, 5, 0, 0, 0));
   TON_body__(&data__->TON0);
   if (__GET_VAR(data__->TON0.Q,)) {
